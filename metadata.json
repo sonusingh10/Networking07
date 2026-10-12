@@ -1,0 +1,6 @@
+{
+  "name": "7LayerX - Network Troubleshooting Visualizer",
+  "description": "Interactive animated network troubleshooting infographic: Why ping works but the application doesn't. Live packet flow simulation, 8-step diagnostics, and OSI layer breakdown.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

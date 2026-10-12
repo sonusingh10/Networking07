@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-backdrop: #080B0C;
+    --surface-main: #101516;
+    --surface-raised: #151C1D;
+    --text-main: #EEF2EF;
+    --text-secondary: #98A5A2;
+    --border-fine: #283231;
+    --lime-signal: #D2F27C;
+    --lime-dim: #A6C955;
+    --coral-warn: #EF8A78;
+  }
+
+  body {
+    background-color: #080B0C;
+    color: #EEF2EF;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  code, pre, kbd, samp, .font-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Subtle, slow restrained animations */
+@keyframes lime-sweep {
+  0% {
+    transform: translateY(-100%) rotate(25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.15;
+  }
+  60% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(220%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gentle-breathe {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(210, 242, 124, 0.2));
+  }
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(210, 242, 124, 0.45));
+  }
+}
+
+@keyframes signal-dash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+}
+
+.animate-lime-sweep {
+  animation: lime-sweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-gentle-breathe {
+  animation: gentle-breathe 4.5s ease-in-out infinite;
+}
+
+.animate-signal-dash {
+  animation: signal-dash 2.4s linear infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 5s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-lime-sweep,
+  .animate-gentle-breathe,
+  .animate-signal-dash,
+  .animate-subtle-pulse {
+    animation: none !important;
+  }
+}
+
+/* Custom dark scrollbar matching #080B0C / #283231 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #080B0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #283231;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4746;
+}
